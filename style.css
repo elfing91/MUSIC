@@ -1,0 +1,136 @@
+/* Reset */
+body {
+  margin: unset;
+  padding: unset;
+}
+img{
+  max-width: 100%;
+  vertical-align: top;
+}
+h1 {
+  font-size: unset;
+  font-weight: unset;
+  margin: unset;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+/* Typography */
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-size: 62.5%;
+  line-height: 1.6;
+}
+body {
+  font-size: 1.4rem;
+}
+
+/* Components */
+.container {
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+.circle {
+  margin: auto;
+  width: 300px;
+  aspect-ratio: 1/1;
+  position: relative;
+  color: rebeccapurple;
+}
+.circle-title{
+  font-size: 3.2rem;
+  font-weight: 600;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.wheel{
+  position: absolute;
+  inset: 0;
+  --distance:-200px;
+
+  animation-name: spin;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+
+  animation-timing-function: linear;
+}
+.wheel:hover{
+  --distance:-300px;
+
+}
+.wheel-item{
+ height: 60px;
+  width: 60px;
+  /*모든 아이템이 가운데로 오도록*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+ /* transform: translate(-50%,-50%);*/
+
+ margin-top: -30px;
+ margin-left: -30px;
+
+ transition: transform .4s;
+
+}
+
+.wheel-item img{
+  animation-name: spin;
+  animation-duration: 40s;
+  animation-iteration-count: infinite;
+  animation-direction: reverse;
+
+  animation-timing-function: linear;
+
+}
+
+/*모든 wheel-item은 화면중간에서 시작, rotate로 방향을 틀어 
+-200만큼(위로) 이동, 이후 다시 방향 반대로 전환*/
+.wheel-item:nth-child(1){
+  transform: rotate(315deg) translateY(var(--distance)) rotate(-315deg) ;
+}
+.wheel-item:nth-child(2){
+  transform: rotate(270deg) translateY(var(--distance)) rotate(-270deg);
+}
+.wheel-item:nth-child(3){
+  transform: rotate(225deg) translateY(var(--distance)) rotate(-225deg);
+}
+.wheel-item:nth-child(4){
+  transform: rotate(180deg) translateY(var(--distance)) rotate(-180deg);
+}
+.wheel-item:nth-child(5){
+  transform: rotate(135deg) translateY(var(--distance)) rotate(-135deg);
+}
+.wheel-item:nth-child(6){
+  transform: rotate(90deg) translateY(var(--distance)) rotate(-90deg);
+}
+.wheel-item:nth-child(7){
+  transform: rotate(45deg) translateY(var(--distance)) rotate(-45deg);
+}
+.wheel-item:nth-child(8){
+  transform: translateY(var(--distance));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
